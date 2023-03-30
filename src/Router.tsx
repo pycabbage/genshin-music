@@ -1,4 +1,4 @@
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import App from '$pages/App';
 import Player from '$pages/Player';
 import Composer from "$pages/Composer"
@@ -45,79 +45,77 @@ export function Router() {
 			<ThemeProviderWrapper>
 				<GeneralProvidersWrapper>
 					<App />
-					<Switch>
-						<Route exact path="/Error">
-							<ErrorPage />
+					<Route path="/Error">
+						<ErrorPage />
+					</Route>
+					<ErrorBoundaryRedirect
+						onErrorGoTo="/Error"
+						onError={() => logger.error("There was an error with the app!")}
+					>
+						<Route path="/">
+							<AppBackground page="Main">
+								<Player />
+							</AppBackground>
 						</Route>
-						<ErrorBoundaryRedirect
-							onErrorGoTo="/Error"
-							onError={() => logger.error("There was an error with the app!")}
-						>
-							<Route exact path="/">
-								<AppBackground page="Main">
-									<Player />
-								</AppBackground>
-							</Route>
-							<Route exact path="/Player">
-								<AppBackground page="Main">
-									<Player />
-								</AppBackground>
-							</Route>
-							<Route exact path="/VsrgComposer">
-								<AppBackground page="Composer">
-									<VsrgComposer />
-								</AppBackground>
-							</Route>
-							<Route exact path="/VsrgPlayer">
-								<AppBackground page="Main">
-									<VsrgPlayer />
-								</AppBackground>
-							</Route>
-							<Route exact path="/Composer">
-								<AppBackground page="Composer">
-									<Composer />
-								</AppBackground>
-							</Route>
-							<Route exact path="/Donate">
-								<Donate />
-							</Route>
-							<Route exact path="/Changelog">
-								<Changelogpage />
-							</Route>
-							<Route exact path="/Partners">
-								<Partners />
-							</Route>
-							<Route exact path='/Help'>
-								<Help />
-							</Route>
-							<Route exact path='/SheetVisualizer'>
-								<SheetVisualizer />
-							</Route>
-							<Route exact path='/MidiSetup'>
-								<MidiSetup />
-							</Route>
-							<Route exact path='/Theme'>
-								<Theme />
-							</Route>
-							<Route exact path='/Privacy'>
-								<Privacy />
-							</Route>
-							<Route exact path='/Keybinds'>
-								<Keybinds />
-							</Route>
-							<Route exact path='/ZenKeyboard'>
-								<AppBackground page="Main">
-									<ZenKeyboard />
-								</AppBackground>
-							</Route>
-							<Route exact path='/Backup'>
-								<Backup />
-							</Route>
-						</ErrorBoundaryRedirect>
-						<Route path='*'>
-							<Error404 />
+						<Route path="/Player">
+							<AppBackground page="Main">
+								<Player />
+							</AppBackground>
 						</Route>
-					</Switch>
+						<Route path="/VsrgComposer">
+							<AppBackground page="Composer">
+								<VsrgComposer />
+							</AppBackground>
+						</Route>
+						<Route path="/VsrgPlayer">
+							<AppBackground page="Main">
+								<VsrgPlayer />
+							</AppBackground>
+						</Route>
+						<Route path="/Composer">
+							<AppBackground page="Composer">
+								<Composer />
+							</AppBackground>
+						</Route>
+						<Route path="/Donate">
+							<Donate />
+						</Route>
+						<Route path="/Changelog">
+							<Changelogpage />
+						</Route>
+						<Route path="/Partners">
+							<Partners />
+						</Route>
+						<Route path='/Help'>
+							<Help />
+						</Route>
+						<Route path='/SheetVisualizer'>
+							<SheetVisualizer />
+						</Route>
+						<Route path='/MidiSetup'>
+							<MidiSetup />
+						</Route>
+						<Route path='/Theme'>
+							<Theme />
+						</Route>
+						<Route path='/Privacy'>
+							<Privacy />
+						</Route>
+						<Route path='/Keybinds'>
+							<Keybinds />
+						</Route>
+						<Route path='/ZenKeyboard'>
+							<AppBackground page="Main">
+								<ZenKeyboard />
+							</AppBackground>
+						</Route>
+						<Route path='/Backup'>
+							<Backup />
+						</Route>
+					</ErrorBoundaryRedirect>
+					<Route path='*'>
+						<Error404 />
+					</Route>
 				</GeneralProvidersWrapper>
 			</ThemeProviderWrapper>
 		</DropZoneProviderWrapper>

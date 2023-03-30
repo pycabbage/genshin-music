@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+// import { RouteComponentProps, withRouter } from "react-router-dom";
+import { RouteProps } from "react-router-dom";
 import VsrgMenu from "$cmp/VsrgComposer/VsrgComposerMenu";
 import { SnapPoint, VsrgBottom, VsrgHitObjectType } from "$cmp/VsrgComposer/VsrgBottom";
 import './VsrgComposer.css';
@@ -26,7 +27,7 @@ import { RecordedNote } from "$lib/Songs/SongClasses";
 import { Title } from "$/components/Miscellaneous/Title";
 import {homeStore} from "$stores/HomeStore";
 
-type VsrgComposerProps = RouteComponentProps & {
+type VsrgComposerProps = RouteProps & {
 
 }
 

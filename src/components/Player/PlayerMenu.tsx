@@ -511,9 +511,9 @@ function SongRow({ data, functions, theme, folders }: SongRowProps) {
                 <Link
                     to={{
                         pathname: "/Composer",
-                        state: {
-                            songId: data.id,
-                        }
+                    }}
+                    state={{
+                        songId: data.id,
                     }}
                     style={{width: '100%'}}
                 >

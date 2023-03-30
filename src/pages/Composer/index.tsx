@@ -18,6 +18,7 @@ import { Column, InstrumentData } from '$lib/Songs/SongClasses';
 import AudioRecorder from '$lib/AudioRecorder'
 import Analytics from '$/lib/Stats';
 import { RouteComponentProps, withRouter } from 'react-router-dom'
+// import { RouteProps } from "react-router-dom";
 import {homeStore} from '$stores/HomeStore';
 import { logger } from '$stores/LoggerStore';
 import { SerializedRecordedSong, RecordedSong } from '$lib/Songs/RecordedSong';

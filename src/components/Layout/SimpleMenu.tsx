@@ -1,23 +1,23 @@
-import { FaHome, FaDiscord, FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaDiscord, FaHome } from 'react-icons/fa';
 
-import {MenuItem} from '$cmp/Miscellaneous/MenuItem'
-import { useHistory } from 'react-router-dom';
+import { MenuItem } from '$cmp/Miscellaneous/MenuItem';
 import { historyTracker } from '$stores/History';
 import { homeStore } from '$stores/HomeStore';
+import { useNavigate } from 'react-router-dom';
 
 interface SimpleMenuProps {
     children?: React.ReactNode,
     className?: string
 }
 export function SimpleMenu({ children = undefined, className = '' }: SimpleMenuProps) {
-    const history = useHistory()
+    const navigate = useNavigate()
     return <div className={"menu-wrapper " + (className)} >
         <div className="menu menu-visible" style={{ justifyContent: 'flex-end' }}>
             {historyTracker.hasNavigated &&
                 <MenuItem
                     style={{ marginBottom: 'auto' }}
                     onClick={() => {
-                        history.goBack()
+                        navigate(-1)
                     }}
                     ariaLabel='Go back'
                 >

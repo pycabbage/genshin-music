@@ -8,7 +8,7 @@ import { APP_NAME, APP_VERSION, AUDIO_CONTEXT, UPDATE_MESSAGE } from "$/Config"
 import Logger from '$cmp/Index/Logger'
 import rotateImg from "$/assets/icons/rotate.svg"
 
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import './App.css';
 import './Utility.scss'
 import { historyTracker } from '$stores/History';
@@ -219,5 +219,6 @@ function App({ history }: any) {
 }
 
 
-export default withRouter(App)
+// export default withRouter(App)
+export default App
 

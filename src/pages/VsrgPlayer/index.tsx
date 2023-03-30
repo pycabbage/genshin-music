@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+// import { RouteComponentProps, withRouter } from "react-router-dom";
+import { RouterProps } from "react-router-dom";
 import './VsrgPlayer.css'
 import VsrgPlayerMenu from "$cmp/VsrgPlayer/VsrgPlayerMenu";
 import { VsrgHitObject, VsrgSong } from "$lib/Songs/VsrgSong";
@@ -20,7 +21,7 @@ import { keyBinds } from "$/stores/KeybindsStore";
 import { logger } from "$stores/LoggerStore";
 import { Title } from "$/components/Miscellaneous/Title";
 
-type VsrgPlayerProps = RouteComponentProps & {
+type VsrgPlayerProps = RouterProps & {
 
 }
 interface VsrgPlayerState {
@@ -190,4 +191,5 @@ class VsrgPlayer extends Component<VsrgPlayerProps, VsrgPlayerState> {
     }
 }
 
-export default withRouter<VsrgPlayerProps, any>(VsrgPlayer)
+// export default withRouter<VsrgPlayerProps, any>(VsrgPlayer)
+export default VsrgPlayer

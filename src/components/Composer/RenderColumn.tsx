@@ -59,8 +59,7 @@ export function RenderColumn({ notes, index, sizes, onClick, cache, instruments,
                     cache.notes[layerStatus]
                 }
                 y={COMPOSER_NOTE_POSITIONS[note.index] * sizes.height / NOTES_PER_COLUMN}
-            >
-            </Sprite>
+            />
         })}
 
     </Container>

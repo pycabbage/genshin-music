@@ -5,7 +5,7 @@ import { historyTracker } from '$stores/History'
 import { MenuItem } from '$cmp/Miscellaneous/MenuItem'
 import { FaArrowLeft, FaHome, FaMusic, FaTimes } from 'react-icons/fa'
 import {homeStore} from '$stores/HomeStore'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import MenuPanel from '$cmp/Layout/MenuPanel'
 import { SerializedSong, SongStorable } from '$lib/Songs/Song'
 import useClickOutside from '$lib/Hooks/useClickOutside'
@@ -19,7 +19,7 @@ interface SheetVisualiserMenuProps {
 
 export function SheetVisualiserMenu({ currentSong, onSongLoaded }: SheetVisualiserMenuProps) {
     const [songs] = useSongs()
-    const history = useHistory()
+    const navigate = useNavigate()
     const [selectedPage, setSelectedPage] = useState("")
     const sideClass = selectedPage === 'Songs' ? "side-menu menu-open" : "side-menu"
     const menuRef = useClickOutside<HTMLDivElement>(() => {
@@ -32,7 +32,7 @@ export function SheetVisualiserMenu({ currentSong, onSongLoaded }: SheetVisualis
                     ariaLabel='Go back'
                     style={{ marginBottom: 'auto' }}
                     onClick={() => {
-                        history.goBack()
+                        navigate(-1)
                     }}
                 >
                     <FaArrowLeft className='icon' />
